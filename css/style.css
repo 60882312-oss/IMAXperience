@@ -1,0 +1,636 @@
+/* CONFIGURACION GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #10100e;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ENCABEZADO */
+
+header {
+    width: 100%;
+    min-height: 130px;
+    padding: 20px 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #292929;
+    position: relative;
+    z-index: 100;
+    gap: 25px;
+}
+
+
+/* LOGOTIPO */
+
+.logo {
+    color: red;
+    font-size: 45px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: white;
+    font-size: 40px;
+}
+
+.logo small {
+    display: block;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+
+/* MENU PRINCIPAL */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav > a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+
+    transition: color 0.3s ease,
+                transform 0.3s ease;
+}
+
+nav > a:hover {
+    color: #00aaff;
+    transform: translateY(-2px);
+}
+
+nav > a:focus-visible {
+    outline: 2px solid #00aaff;
+    outline-offset: 5px;
+}
+
+
+/* MENU DE SEDES */
+
+.menu-sedes {
+    position: relative;
+}
+
+.menu-sedes summary {
+    list-style: none;
+    cursor: pointer;
+
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    transition: color 0.3s ease;
+}
+
+.menu-sedes summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-sedes summary::marker {
+    content: "";
+}
+
+.menu-sedes summary:hover {
+    color: #00aaff;
+}
+
+.ubicacion-icono {
+    font-size: 13px;
+}
+
+.flecha {
+    font-size: 9px;
+    transition: transform 0.3s ease;
+}
+
+.menu-sedes details[open] .flecha {
+    transform: rotate(180deg);
+}
+
+.lista-sedes {
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+
+    width: 230px;
+
+    background-color: #22211e;
+    border: 1px solid #393939;
+    border-radius: 7px;
+
+    list-style: none;
+    padding: 6px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    z-index: 200;
+}
+
+.lista-sedes li {
+    width: 100%;
+}
+
+.lista-sedes li a {
+    display: block;
+    padding: 12px 10px;
+
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+
+    border-radius: 4px;
+
+    transition: background-color 0.3s ease,
+                color 0.3s ease;
+}
+
+.lista-sedes li a:hover {
+    background-color: #333;
+    color: #00aaff;
+}
+
+
+/* CONTENIDO PRINCIPAL */
+
+main {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 35px 20px;
+}
+
+.encabezado-seccion {
+    margin-bottom: 22px;
+}
+
+h2 {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.linea-decorativa {
+    display: block;
+    width: 65px;
+    height: 3px;
+    background-color: #e50914;
+    border-radius: 5px;
+}
+
+
+/* GRID DE PELICULAS */
+
+.peliculas {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 30px 16px;
+}
+
+
+/* TARJETAS */
+
+.pelicula {
+    background-color: #22211e;
+    border-radius: 7px;
+    overflow: hidden;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.pelicula:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+/* POSTER */
+
+.poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    position: relative;
+    background-color: #292929;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.pelicula:hover .poster img {
+    transform: scale(1.04);
+}
+
+
+/* DURACION */
+
+.duracion {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 5px 7px;
+    font-size: 10px;
+    border-radius: 3px;
+}
+
+
+/* INFORMACION */
+
+.informacion {
+    padding: 12px 10px;
+    min-height: 70px;
+}
+
+.titulo {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    min-height: 25px;
+    padding-right: 35px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.clasificacion {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #009fe3;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: 9px;
+}
+
+.formato {
+    color: #ccc;
+    font-size: 10px;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+
+/*ESTADO */
+
+.estado {
+    background: #f4f0ed;
+    color: #222;
+    margin: 0 3px 3px;
+    padding: 5px 7px;
+    font-size: 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+
+/* PREVENTA */
+
+.preventa {
+    margin-top: 40px;
+    padding: 30px 0;
+    border-top: 1px solid #292929;
+}
+
+.preventa h2 {
+    margin-bottom: 20px;
+}
+
+
+/* FORMATOS DE CINE */
+
+.formatos-cine {
+    margin-top: 35px;
+    padding: 30px 0;
+    border-top: 1px solid #292929;
+}
+
+.formatos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.formato-card {
+    background: linear-gradient(145deg, #292929, #171717);
+    border: 1px solid #383838;
+    border-radius: 8px;
+
+    padding: 25px 18px;
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.formato-card:hover {
+    transform: translateY(-5px);
+    border-color: #e50914;
+}
+
+.formato-card h3 {
+    color: #e50914;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.formato-card p {
+    color: #ccc;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* PROMOCIONES */
+
+.seccion-extra {
+    margin-top: 35px;
+    padding: 30px 0;
+    border-top: 1px solid #292929;
+}
+
+.texto-seccion {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* PIE DE PAGINA */
+
+footer {
+    background-color: #080808;
+    border-top: 1px solid #292929;
+    padding: 35px 5% 15px;
+}
+
+.footer-contenido {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-logo {
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.footer-logo span {
+    color: white;
+}
+
+.footer-logo p {
+    color: #aaa;
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+.footer-enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-enlaces a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease;
+}
+
+.footer-enlaces a:hover {
+    color: #e50914;
+}
+
+.footer-inferior {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding-top: 15px;
+    border-top: 1px solid #292929;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-inferior p {
+    color: #777;
+    font-size: 11px;
+}
+
+
+/* RESPONSIVE - TABLETS */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    nav {
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .peliculas {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/*RESPONSIVE - CELULARES*/
+
+@media (max-width: 650px) {
+
+    header {
+        flex-direction: column;
+        align-items: center;
+
+        gap: 25px;
+        padding: 20px 15px;
+    }
+
+    .logo {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .logo span {
+        font-size: 35px;
+    }
+
+    .logo small {
+        font-size: 9px;
+    }
+
+    nav {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 20px;
+    }
+
+    nav > a {
+        font-size: 10px;
+    }
+
+    .menu-sedes {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu-sedes summary {
+        font-size: 11px;
+    }
+
+    .lista-sedes {
+        width: min(260px, 90vw);
+
+        right: 50%;
+        transform: translateX(50%);
+
+        top: calc(100% + 12px);
+    }
+
+    main {
+        width: calc(100% - 24px);
+        padding: 25px 0;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .peliculas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 12px;
+    }
+
+    .formatos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-enlaces {
+        gap: 15px;
+    }
+
+}
+
+
+/* RESPONSIVE - CELULARES PEQUEÑOS */
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 34px;
+    }
+
+    .logo span {
+        font-size: 30px;
+    }
+
+    .peliculas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px 9px;
+    }
+
+    .informacion {
+        padding: 9px 7px;
+    }
+
+    .titulo {
+        font-size: 9px;
+    }
+
+    .formato {
+        font-size: 8px;
+    }
+
+    .poster {
+        aspect-ratio: 2 / 3;
+    }
+
+    .footer-inferior {
+        flex-direction: column;
+    }
+
+}
+
+
+/* ACCESIBILIDAD*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+}
